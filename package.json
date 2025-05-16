@@ -1,0 +1,77 @@
+{
+  "name": "ts-library-vite-template",
+  "private": "false",
+  "version": "0.0.0",
+  "description": "A dummy library to make a library deployment example",
+  "type": "module",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Piwexx/ts-library-vite"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "prepare": "husky",
+    "lint": "eslint . --ext .ts --ignore-pattern dist/",
+    "lint:fix": "npm run lint  --fix",
+    "format": "prettier --write .",
+    "commit": "cz",
+    "check:types": "tsc --noEmit"
+  },
+  "keywords": [
+    "ts"
+  ],
+  "author": "Juan Vigario",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cz-commitlint": "^19.8.0",
+    "@eslint/js": "^9.25.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.2",
+    "@semantic-release/npm": "^12.0.1",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/parser": "^8.31.0",
+    "@vitest/coverage-v8": "^3.1.2",
+    "commitizen": "^4.3.1",
+    "commitlint": "^19.8.0",
+    "cz-customizable": "^7.4.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-import-resolver-typescript": "^4.3.4",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3",
+    "semantic-release": "^24.2.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.0",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.2"
+  }
+}
