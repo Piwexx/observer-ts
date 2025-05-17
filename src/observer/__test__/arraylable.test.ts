@@ -1,4 +1,4 @@
-import { arraylable } from '../arraylable';
+import { arraylable } from '../IntersectionObserver';
 
 describe('arraylable', () => {
   it('should return same array if input is an array', () => {

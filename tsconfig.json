@@ -16,12 +16,12 @@
       "@src/*": ["src/*"],
       "@types/*": ["src/types/*"]
     },
-    
-     /* Bundler mode */
-     "moduleResolution": "bundler",
-     "allowImportingTsExtensions": true,
-     "isolatedModules": true,
-     "moduleDetection": "force",
-     "noEmit": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true
   }
 }
