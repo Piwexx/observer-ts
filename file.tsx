@@ -28,3 +28,19 @@ const stop = observe(
   },
   {},
 );
+
+//Mutation Observer
+const elementos = document.querySelectorAll('.card');
+
+let config = { attributes: true, childList: true, characterData: true };
+
+const stop = Mutationobserve(
+  Array.from(elementos),
+  (entry) => {
+    console.log(entry.type);
+  },
+  config,
+);
+
+// Otros
+//Se podria implementar que se cree un instancia por cada elemento
