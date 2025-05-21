@@ -13,7 +13,7 @@ export function observeElements(
   callback: IntersectionCallback,
   options: ObserverOptions = {},
 ): StopObserving {
-  const elements = Array.isArray(target) ? target : [target];
+  const elements = (Array.isArray(target) ? target : [target]).filter(Boolean);
 
   const observer = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach((entry) => {
