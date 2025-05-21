@@ -25,17 +25,13 @@ describe('resizeElements', () => {
     global.ResizeObserver = ResizeObserverMock as unknown as typeof ResizeObserver;
   });
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('observa un elemento y ejecuta el callback en resize', () => {
     const el = document.createElement('div');
     const cb = vi.fn();
 
     resizeElements(el, cb, { box: 'border-box' });
 
-    const entry = { target: el, contentRect: {} } as ResizeObserverEntry;
+    const entry = { target: el, contentRect: {} } as unknown as ResizeObserverEntry;
     ResizeObserverMock._callback?.([entry], {} as ResizeObserver);
 
     expect(cb).toHaveBeenCalledWith(entry, expect.any(Object));
