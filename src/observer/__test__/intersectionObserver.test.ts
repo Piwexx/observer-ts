@@ -1,21 +1,31 @@
 import { observeElements } from '@src/observer/intersectionObserver';
 
 describe('observe', () => {
-  let mockObserve: unknown;
-  let mockUnobserve: unknown;
-  let mockDisconnect: unknown;
+  let mockObserve: ReturnType<typeof vi.fn>;
+  let mockUnobserve: ReturnType<typeof vi.fn>;
+  let mockDisconnect: ReturnType<typeof vi.fn>;
+  let IntersectionObserverMock: ReturnType<typeof vi.fn> & {
+    _callback?: IntersectionObserverCallback;
+  };
 
   beforeEach(() => {
     mockObserve = vi.fn();
     mockUnobserve = vi.fn();
     mockDisconnect = vi.fn();
 
-    global.IntersectionObserver = vi.fn().mockImplementation(() => ({
-      observe: mockObserve,
-      unobserve: mockUnobserve,
-      disconnect: mockDisconnect,
-      takeRecords: () => [],
-    }));
+    IntersectionObserverMock = vi
+      .fn()
+      .mockImplementation((callback: IntersectionObserverCallback) => {
+        IntersectionObserverMock._callback = callback;
+        return {
+          observe: mockObserve,
+          unobserve: mockUnobserve,
+          disconnect: mockDisconnect,
+        };
+      });
+
+    global.IntersectionObserver =
+      IntersectionObserverMock as unknown as typeof IntersectionObserver;
   });
 
   it('debería observar un solo elemento', () => {
@@ -39,21 +49,11 @@ describe('observe', () => {
     const el = document.createElement('div');
     const cb = vi.fn();
 
-    let trigger!: (entries: unknown[], observer: unknown) => void;
-
-    global.IntersectionObserver = vi.fn().mockImplementation((callback) => {
-      trigger = callback;
-      return {
-        observe: mockObserve,
-        unobserve: mockUnobserve,
-        disconnect: mockDisconnect,
-      };
-    });
-
     observeElements(el, cb);
 
-    const entry = { target: el, isIntersecting: true };
-    trigger([entry], {}); // Simula la intersección
+    const entry = { target: el, isIntersecting: true } as unknown as IntersectionObserverEntry;
+
+    IntersectionObserverMock._callback?.([entry], {} as IntersectionObserver);
 
     expect(cb).toHaveBeenCalledWith(entry, {});
   });
