@@ -1,1 +1,1 @@
-export * from './IntersectionObserver';
+export * from './intersectionObserver';

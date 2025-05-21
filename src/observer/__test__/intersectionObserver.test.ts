@@ -1,4 +1,4 @@
-import { observeElements } from '@src/observer/IntersectionObserver';
+import { observeElements } from '@src/observer/intersectionObserver';
 
 describe('observe', () => {
   let mockObserve: unknown;
