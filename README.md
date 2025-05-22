@@ -8,7 +8,7 @@ Utilidades simples y tipadas en TypeScript para trabajar con `IntersectionObserv
 
 ```bash
 npm install @tu-org/ts-observers-utils
-
+ ```
 ## 🧪 Ejemplos de Uso
 
 ### 🧭 observeElements  
@@ -31,7 +31,7 @@ const stop = observeElements(
 
 // Para detener la observación
 stop();
-
+ ```
 ### 🧭 mutationElements   
 Observa cambios en el DOM de uno o más elementos.
 
@@ -51,7 +51,7 @@ const stop = mutationElements(
 
 // Para detener la observación
 stop();
-
+ ```
 ### 🧭 resizeElements   
 Observa cambios de tamaño en uno o varios elementos.
 
@@ -68,3 +68,4 @@ const stop = resizeElements(
 
 // Para detener la observación
 stop();
+ ```
