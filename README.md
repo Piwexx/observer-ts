@@ -7,7 +7,7 @@ Utilidades simples y tipadas en TypeScript para trabajar con `IntersectionObserv
 ## 🚀 Instalación
 
 ```bash
-npm install @tu-org/ts-observers-utils
+npm i observer-ts
  ```
 ## 🧪 Ejemplos de Uso
 
@@ -15,7 +15,7 @@ npm install @tu-org/ts-observers-utils
 Observa la visibilidad de uno o más elementos.
 
 ```ts
-import { observeElements } from '@tu-org/ts-observers-utils';
+import { observeElements } from 'observer-ts';
 
 const stop = observeElements(
   document.querySelectorAll('.track'),
@@ -36,7 +36,7 @@ stop();
 Observa cambios en el DOM de uno o más elementos.
 
 ```ts
-import { mutationElements } from '@tu-org/ts-observers-utils';
+import { mutationElements } from 'observer-ts';
 
 const stop = mutationElements(
   document.getElementById('app'),
@@ -56,7 +56,7 @@ stop();
 Observa cambios de tamaño en uno o varios elementos.
 
 ```ts
-import { resizeElements } from '@tu-org/ts-observers-utils';
+import { resizeElements } from 'observer-ts';
 
 const stop = resizeElements(
   document.querySelector('.resizable'),
