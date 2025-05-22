@@ -1,5 +1,5 @@
-import { IntersectionCallback, ObserverOptions, StopObserving } from '@types/intersectionObserver';
-
+import { StopObserving } from '@src/types/helper';
+import { IntersectionCallback, IobserverOptions } from '@src/types/intersectionObserver';
 /**
  * Observa uno o varios elementos con IntersectionObserver.
  *
@@ -11,9 +11,13 @@ import { IntersectionCallback, ObserverOptions, StopObserving } from '@types/int
 export function observeElements(
   target: Element | Element[],
   callback: IntersectionCallback,
-  options: ObserverOptions = {},
+  options: IobserverOptions = {},
 ): StopObserving {
   const elements = (Array.isArray(target) ? target : [target]).filter(Boolean);
+
+  if (!elements.length) {
+    throw new Error('observeElements: No valid elements to observe.');
+  }
 
   const observer = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach((entry) => {

@@ -1,4 +1,4 @@
-import { observeElements } from '@src/observer/intersectionObserver';
+import { observeElements } from '@src/observer/IntersectionObserver';
 
 describe('observe', () => {
   let mockObserve: ReturnType<typeof vi.fn>;

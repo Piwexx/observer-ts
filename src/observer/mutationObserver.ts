@@ -1,4 +1,5 @@
-import { MutationCallback, ObserverOptions, StopObserving } from '@types/mutationObserver';
+import { StopObserving } from '@src/types/helper';
+import { MobserverOptions, MutationCallback } from '@src/types/mutationObserver';
 
 /**
  * Observa uno o varios elementos con MutationObserver.
@@ -9,9 +10,9 @@ import { MutationCallback, ObserverOptions, StopObserving } from '@types/mutatio
  * @returns Función para detener la observación.
  */
 export function mutationElements(
-  target: Element | Element[] | null | undefined,
+  target: Element | Element[],
   callback: MutationCallback,
-  options: ObserverOptions = {},
+  options: MobserverOptions = {},
 ): StopObserving {
   const elements = (Array.isArray(target) ? target : [target]).filter(Boolean);
 

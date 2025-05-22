@@ -1,4 +1,6 @@
-import { ObserverOptions, ResizeCallback, StopObserving } from '@types/resizeObserver';
+import { StopObserving } from '@src/types/helper';
+import { ResizeCallback, RobserverOptions } from '@src/types/resizeObserver';
+
 /**
  * Observa uno o varios elementos con ResizeObserver.
  *
@@ -10,9 +12,13 @@ import { ObserverOptions, ResizeCallback, StopObserving } from '@types/resizeObs
 export const resizeElements = (
   target: Element | Element[],
   callback: ResizeCallback,
-  options: ObserverOptions,
+  options: RobserverOptions,
 ): StopObserving => {
   const elements = (Array.isArray(target) ? target : [target]).filter(Boolean);
+
+  if (!elements.length) {
+    throw new Error('resizeElements: No valid elements to observe.');
+  }
 
   const resizeObserver = new ResizeObserver((entries, resizeInstance) => {
     entries.forEach((entry) => {

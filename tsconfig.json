@@ -11,10 +11,9 @@
     "outDir": "dist",
     "rootDir": "src",
     "types": ["vitest/globals"],
-    "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"],
-      "@types/*": ["src/types/*"]
+      "@src/*": ["./src/*"],
+      "@types/*": ["./src/types/*"]
     },
 
     /* Bundler mode */

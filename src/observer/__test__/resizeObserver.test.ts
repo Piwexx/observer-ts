@@ -1,4 +1,4 @@
-import { resizeElements } from '@src/observer/resizeObserver';
+import { resizeElements } from '@src/observer/ResizeObserver';
 
 describe('resizeElements', () => {
   let observeMock: ReturnType<typeof vi.fn>;

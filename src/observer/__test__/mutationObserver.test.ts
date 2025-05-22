@@ -1,4 +1,4 @@
-import { mutationElements } from '@src/observer/mutationObserver';
+import { mutationElements } from '@src/observer/MutationObserver';
 
 let mockObserve: ReturnType<typeof vi.fn>;
 let mockDisconnect: ReturnType<typeof vi.fn>;
@@ -70,15 +70,5 @@ describe('mutationElements', () => {
 
     stop();
     expect(mockDisconnect).toHaveBeenCalledTimes(1); // solo 1 observer creado
-  });
-
-  it('debe manejar null o undefined como target', () => {
-    const cb = vi.fn();
-
-    expect(() => {
-      mutationElements(null, cb);
-    }).toThrowError('mutationElements: No valid elements to observe.');
-
-    expect(cb).not.toHaveBeenCalled();
   });
 });
