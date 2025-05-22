@@ -1,8 +1,4 @@
-export type IobserverOptions = {
-  root?: Element | null;
-  rootMargin?: string;
-  threshold?: number | number[];
-};
+export type IobserverOptions = IntersectionObserverInit;
 
 export type IntersectionCallback = (
   entry: IntersectionObserverEntry,
