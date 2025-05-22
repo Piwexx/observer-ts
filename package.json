@@ -1,6 +1,6 @@
 {
   "name": "observer-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "observer-ts",
   "type": "module",
   "typings": "./dist/index.d.ts",
