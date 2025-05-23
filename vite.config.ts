@@ -8,11 +8,11 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'ts-lib-vite',
+      name: 'observer-ts',
     },
   },
   plugins: [
-    dts({ outDir: 'dist', exclude: ['**/*.(test|spec).tsx?', 'test/'] }),
+    dts({ outDir: 'dist', exclude: ['**/*.(test|spec).ts?', '**/__test__/**', '/test'] }),
     viteConfigPaths(),
   ],
 });
