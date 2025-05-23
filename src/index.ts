@@ -1,3 +1,3 @@
-export * from '@src/observer/IntersectionObserver';
-export * from '@src/observer/MutationObserver';
-export * from '@src/observer/ResizeObserver';
+export * from './observer/IntersectionObserver';
+export * from './observer/MutationObserver';
+export * from './observer/ResizeObserver';
